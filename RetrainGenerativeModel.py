@@ -179,7 +179,7 @@ if __name__ == "__main__":
     callback = PushToHubCallback(
         output_dir="test-clm",
         tokenizer=tokenizer,
-        hub_token="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"
+        hub_token=""
     )   
 
     model.fit(x=tf_train_set, validation_data=tf_test_set, epochs=3, callbacks=[callback])

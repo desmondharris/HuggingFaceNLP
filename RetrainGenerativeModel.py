@@ -1,10 +1,8 @@
 from praw import Reddit
-from datasets import load_dataset, Dataset
+from datasets import load_dataset
 from transformers import AutoTokenizer, DataCollatorForLanguageModeling, TFAutoModelForCausalLM, create_optimizer, AdamWeightDecay
 import tensorflow as tf
 from transformers.keras_callbacks import PushToHubCallback
-from huggingface_hub import notebook_login
-import os 
 import re
 
 

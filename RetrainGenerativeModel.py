@@ -1,6 +1,7 @@
 from praw import Reddit
 from datasets import load_dataset
 from transformers import AutoTokenizer, DataCollatorForLanguageModeling, TFAutoModelForCausalLM, create_optimizer, AdamWeightDecay
+import huggingface_hub
 import tensorflow as tf
 from transformers.keras_callbacks import PushToHubCallback
 import re
@@ -173,11 +174,11 @@ if __name__ == "__main__":
     )
 
     model.compile(optimizer=optimizer)
-
+    huggingface_hub.login(token="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")
     callback = PushToHubCallback(
-        output_dir="test-clm",
+        output_dir="teshuggingface_hub.logit-clm",
         tokenizer=tokenizer,
-        hub_token=""
+        hub_token="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"
     )   
 
     model.fit(x=tf_train_set, validation_data=tf_test_set, epochs=3, callbacks=[callback])
